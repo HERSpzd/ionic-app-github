@@ -1,0 +1,42 @@
+//Set team member list style
+ion-list {
+    align-items: center;
+    justify-content: center;
+
+    ion-list-header {
+        ion-label {
+            text-align: center;
+            font-weight: bold;
+        }
+    }
+
+    ion-item {
+        ion-label {
+            color: #555;
+            text-align: center;
+        }
+    }
+}
+
+//Set ion toolbar style
+ion-toolbar {
+    --background: #ff6600;
+    color: #fff;
+}
+
+//Set div style
+div {
+    padding: 20px;
+    text-align: center;
+
+    h1 {
+        color: #3880ff;
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    p {
+        color: #555;
+        font-size: 16px;
+    }
+}

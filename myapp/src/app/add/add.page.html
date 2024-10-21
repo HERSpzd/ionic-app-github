@@ -1,0 +1,115 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Add Artist</ion-title>
+    <!-- Help button -->
+    <ion-button id="help-alert5" slot="end" size="small" style="margin-right: 10px;">
+      <ion-icon name="help"></ion-icon>
+      <ion-alert trigger="help-alert5" header="Help" subHeader="Do you need help?"
+        message="Please enter or select all artist information, special notes can be empty." [buttons]="alertButtons5">
+      </ion-alert>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Add Artist</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-list>
+    <!-- Artist ID input -->
+    <ion-item>
+      <ion-input [(ngModel)]="artist.artist_id" label="Artist ID: " placeholder="Please enter your ID"></ion-input>
+      <p>{{ message1 }}</p>
+    </ion-item>
+    <!-- name input -->
+    <ion-item>
+      <ion-input [(ngModel)]="artist.name" label="Name: " placeholder="Please enter your name"></ion-input>
+      <p>{{ message3 }}</p>
+    </ion-item>
+
+
+    <!-- DOB calendar -->
+    <ion-item>
+      <ion-label>DOB:</ion-label>
+
+
+      <ion-button (click)="openDatePicker()" fill="clear">
+        <ion-icon name="calendar"></ion-icon>
+      </ion-button>
+      <p style="margin-right: 370px;">{{ artist.dob }}</p>
+    </ion-item>
+
+
+
+
+    <!-- Gender selector -->
+    <ion-item>
+      <ion-select [(ngModel)]="artist.gender" style="margin-right: 400px;" placeholder="Please select your gender"
+        okText="OK" cancelText="Cancel" label="Gender: ">
+        <ion-select-option value="Female">Female</ion-select-option>
+        <ion-select-option value="Male">Male</ion-select-option>
+        <ion-select-option value="Unspecified">Unspecified</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <!-- Artwork Type selector -->
+    <ion-item>
+      <ion-select [(ngModel)]="artist.artwork_type" style="margin-right: 400px;"
+        placeholder="Please select your artwork type" okText="OK" cancelText="Cancel" label="Artwork Type: ">
+        <ion-select-option value="painting">painting</ion-select-option>
+        <ion-select-option value="sculpture">sculpture</ion-select-option>
+        <ion-select-option value="photograph">photograph</ion-select-option>
+        <ion-select-option value="video art">video art</ion-select-option>
+        <ion-select-option value="digital art">digital art</ion-select-option>
+        <ion-select-option value="printmaking">printmaking</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Contact Info input -->
+    <ion-item>
+      <ion-input [(ngModel)]="artist.contact_info" label="Contact Info: " placeholder="Please enter your contact info">
+      </ion-input>
+      <p>{{ message2 }}</p>
+    </ion-item>
+
+
+    <!-- Exhibition Date selector -->
+    <ion-item>
+      <ion-label>Exhibition Date:</ion-label>
+      <ion-button (click)="openDatePicker2()" fill="clear">
+        <ion-icon name="calendar"></ion-icon>
+      </ion-button>
+      <p style="margin-right: 310px;">{{ artist.exhibition_date }}</p>
+    </ion-item>
+
+    <!-- Special notes input -->
+    <ion-item>
+      <ion-input [(ngModel)]="artist.special_notes" label="Special Notes: "
+        placeholder="Please enter your Special Notes"></ion-input>
+    </ion-item>
+
+
+
+    <!-- Is featured artist selector -->
+    <ion-item>
+      <ion-select [(ngModel)]="artist.is_featured_artist" style="margin-right: 400px;"
+        placeholder="Please choose featured artist" okText="OK" cancelText="Cancel" label="Featured Artist: ">
+        <ion-select-option value="1">Yes</ion-select-option>
+        <ion-select-option value="0">No</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+
+    <br>
+    <!-- Add button -->
+    <ion-button style="margin-left: 15px;" (click)=onAdd()>Add</ion-button>
+    <!-- Cancel button -->
+    <ion-button style="margin-left: 15px;" (click)=dismiss()>Cancel</ion-button>
+
+
+  </ion-list>
+
+
+
+</ion-content>

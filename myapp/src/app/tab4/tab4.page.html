@@ -1,0 +1,63 @@
+<!-- This is the privacy and security page -->
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Privacy and Security</ion-title>
+    <!-- Help button -->
+    <ion-button id="help-alert4" slot="end" size="small" style="margin-right: 10px;">
+      <ion-icon name="help"></ion-icon>
+      <ion-alert trigger="help-alert4" header="Help" subHeader="Do you need help?"
+        message="This page is a privacy and security page, where you can view the privacy and security terms of this application."
+        [buttons]="alertButtons4">
+      </ion-alert>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title>Privacy and Security</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Privacy and security instructions text -->
+  <div style="padding: 20px;">
+    <h1 style="padding: 20px; text-align: center;" class="welcome">Privacy and Security Statement</h1>
+    <p>Thank you for choosing our application for managing artist information. We are committed to setting benchmarks in
+      transparency and user trust by conducting an exhaustive analysis and integration of privacy and security measures.
+      We ensure meticulous communication about how your data is protected.</p>
+
+    <h2>Comprehensive Privacy and Security Measures</h2>
+    <p>We have implemented a suite of privacy and security measures designed to protect your personal information and
+      ensure the integrity of your data. Below is a detailed breakdown of our initiatives:</p>
+
+    <h3>1. Advanced Data Encryption and Secure Storage</h3>
+    <p>All artist information you provide is encrypted using industry-leading standards. We employ state-of-the-art
+      encryption technologies during data transmission and storage to maximize the protection of your information.</p>
+
+    <h3>2. Data Minimization and Retention</h3>
+    <p>We collect only the necessary information required for managing artist data and minimize storage volume. Regular
+      audits are conducted to identify and eliminate any unnecessary data, ensuring minimal retention and maximum
+      privacy.</p>
+
+    <h3>3. HTTPS Secure Communication</h3>
+    <p>Communication between your device and our servers is secured using HTTPS, which encrypts data in transit,
+      preventing any potential interception or tampering.</p>
+
+    <h3>4. Regular Database Integrity Checks</h3>
+    <p>Our routine database integrity checks help us identify and rectify any potential vulnerabilities, maintaining the
+      security and integrity of your data at all times.</p>
+
+    <h3>5. Adherence to Privacy Laws</h3>
+    <p>We are committed to complying with all applicable privacy laws and regulations, ensuring that your rights and
+      privacy are respected and protected.</p>
+
+    <h3>6. Proactive Security Vulnerability Monitoring</h3>
+    <p>Our proactive security systems monitor for any signs of abnormal activity or potential risks, enabling us to
+      respond swiftly to secure your data against emerging threats.</p>
+
+    <h2>Contact Us</h2>
+    <p>If you have any questions or concerns about our privacy and security practices, please do not hesitate to contact
+      us at zpeng15#qq.com. We are here to help and ensure your information remains secure.</p>
+  </div>
+</ion-content>

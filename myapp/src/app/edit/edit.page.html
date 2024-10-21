@@ -1,0 +1,121 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Edit/Update Artist information</ion-title>
+    <!-- Help button -->
+    <ion-button id="help-alert6" slot="end" size="small" style="margin-right: 10px;">
+      <ion-icon name="help"></ion-icon>
+      <ion-alert trigger="help-alert6" header="Help" subHeader="Do you need help?" message="Please change the information you need to change and press the submit button to submit. Then press the return button in the upper right corner to return. This page can also delete artists. Enter the name of the artist you want to delete and click the delete button to delete it. If unable to modify, please reselect DOB and Exhibition Date, thank you
+        !" [buttons]="alertButtons6">
+      </ion-alert>
+    </ion-button>
+    <!-- Back button -->
+    <ion-button slot="end" size="small" style="margin-right: 10px;" (click)="dismiss()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large"></ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-list>
+    <!-- Artist ID input -->
+    <ion-item>
+      <ion-input [(ngModel)]="artist.artist_id" label="Artist ID: " placeholder="Please enter your ID">
+      </ion-input>
+      <p>{{ message1 }}</p>
+    </ion-item>
+    <!-- Artist name input -->
+    <ion-item>
+      <ion-input [(ngModel)]="artist.name" label="Name: " placeholder="Please enter your name">
+      </ion-input>
+      <p>{{ message3 }}</p>
+    </ion-item>
+
+
+    <!-- DOB calendar -->
+    <ion-item>
+      <ion-label>DOB:</ion-label>
+      <ion-button (click)="openDatePicker()" fill="clear">
+        <ion-icon name="calendar"></ion-icon>
+      </ion-button>
+      <p style="margin-right: 370px;">{{ artist.dob }}</p>
+    </ion-item>
+
+    <!-- Gender selector -->
+    <ion-item>
+      <ion-select [(ngModel)]="artist.gender" style="margin-right: 400px;" placeholder="Please select your gender"
+        okText="OK" cancelText="Cancel" label="Gender: ">
+        <ion-select-option value="Female">Female</ion-select-option>
+        <ion-select-option value="Male">Male</ion-select-option>
+        <ion-select-option value="Unspecified">Unspecified</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Artwork type selector -->
+    <ion-item>
+      <ion-select [(ngModel)]="artist.artwork_type" style="margin-right: 410px;"
+        placeholder="Please select your artwork type" okText="OK" cancelText="Cancel" label="Artwork Type: ">
+        <ion-select-option value="painting">painting</ion-select-option>
+        <ion-select-option value="sculpture">sculpture</ion-select-option>
+        <ion-select-option value="photograph">photograph</ion-select-option>
+        <ion-select-option value="video art">video art</ion-select-option>
+        <ion-select-option value="digital art">digital art</ion-select-option>
+        <ion-select-option value="printmaking">printmaking</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- contact info input -->
+    <ion-item>
+      <ion-input [(ngModel)]="artist.contact_info" label="Contact Info: " placeholder="Please enter your contact info">
+      </ion-input>
+      <p>{{ message2 }}</p>
+    </ion-item>
+
+    <!-- Exhibition Date calendar -->
+    <ion-item>
+      <ion-label>Exhibition Date:</ion-label>
+      <ion-button (click)="openDatePicker2()" fill="clear">
+        <ion-icon name="calendar"></ion-icon>
+      </ion-button>
+      <p style="margin-right: 310px;">{{ artist.exhibition_date }}</p>
+    </ion-item>
+
+    <!-- Special notes input -->
+    <ion-item>
+      <ion-input [(ngModel)]="artist.special_notes" label="Special Notes: "
+        placeholder="Please enter your Special Notes"></ion-input>
+    </ion-item>
+
+
+    <!-- Featured artist selector -->
+    <ion-item>
+      <ion-select [(ngModel)]="artist.is_featured_artist" placeholder="Please choose featured artist" okText="OK"
+        cancelText="Cancel" label="Featured Artist: " style="margin-right: 400px;">
+        <ion-select-option [value]="1">Yes</ion-select-option>
+        <ion-select-option [value]="0">No</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Edit Success Information -->
+    <p style="margin-left: 15px;">{{ message0 }}</p>
+
+    <!-- Edit button -->
+    <br>
+    <ion-button style="margin-left: 15px;" (click)="updateData()">Edit</ion-button>
+
+    <!-- Delete function -->
+    <br>
+    <div style="display: flex; align-items: center; justify-content: center;">
+      <ion-input style="width: 50%; border: 1px solid #ccc;" placeholder="Please enter the delete artist's name"
+        [(ngModel)]="deleteText"></ion-input>
+      <ion-button (click)="onDelete()">Delete</ion-button>
+    </div>
+
+
+  </ion-list>
+
+</ion-content>

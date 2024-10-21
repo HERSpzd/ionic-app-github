@@ -1,0 +1,23 @@
+//Set ion toolbar style
+ion-toolbar {
+    --background: #ff6600;
+    color: #fff;
+}
+
+//Set ion grid style
+ion-grid {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+//Set ion row style
+ion-row {
+    border-bottom: 1px solid #ccc;
+
+}
+
+//Set ion text style
+ion-text {
+    display: block;
+    text-align: center;
+}

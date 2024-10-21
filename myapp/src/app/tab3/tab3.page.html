@@ -1,0 +1,92 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Featured Artists
+    </ion-title>
+    <!-- Refresh button -->
+    <ion-button slot="end" size="small" style="margin-right: 10px;">
+      <ion-icon name="refresh" (click)="getAllArtist()"></ion-icon>
+    </ion-button>
+    <!-- Help button -->
+    <ion-button id="help-alert3" slot="end" size="small" style="margin-right: 10px;">
+      <ion-icon name="help"></ion-icon>
+      <ion-alert trigger="help-alert3" header="Help" subHeader="Do you need help?"
+        message="This page displays all the featured artists. You can click the refresh button in the upper left corner to refresh this page."
+        [buttons]="alertButtons3">
+      </ion-alert>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Display a list of featured artists -->
+<ion-content [fullscreen]="true">
+  <ion-grid style="text-align: center;">
+    <ion-row style="font-size: 11px; font-weight: bold;">
+      <ion-col size="1.1">
+        <ion-text>Artist ID</ion-text>
+      </ion-col>
+      <ion-col size="1.1">
+        <ion-text>Name</ion-text>
+      </ion-col>
+      <ion-col size="1.1">
+        <ion-text>DOB</ion-text>
+      </ion-col>
+      <ion-col size="1.3">
+        <ion-text>Gender</ion-text>
+      </ion-col>
+      <ion-col size="1.3">
+        <ion-text>Artwork Type</ion-text>
+      </ion-col>
+      <ion-col size="1.3">
+        <ion-text>Contact Info</ion-text>
+      </ion-col>
+      <ion-col size="1.6">
+        <ion-text>Exhibition Date</ion-text>
+      </ion-col>
+      <ion-col size="1.3">
+        <ion-text>Special Notes</ion-text>
+      </ion-col>
+      <ion-col size="1.4">
+        <ion-text>Featured Artist</ion-text>
+      </ion-col>
+
+    </ion-row>
+
+
+    <div *ngFor="let a of artistData;">
+      <ion-row *ngIf="isFeatured(a.is_featured_artist? 1 : 0)" style="font-size: 11px; font-weight: bold;">
+        <ion-col size="1.1">
+          <ion-text>{{ a.artist_id }}</ion-text>
+        </ion-col>
+        <ion-col size="1.1">
+          <ion-text>{{ a.name }}</ion-text>
+        </ion-col>
+        <ion-col size="1.1">
+          <ion-text>{{ a.dob }}</ion-text>
+        </ion-col>
+        <ion-col size="1.3">
+          <ion-text>{{ a.gender }}</ion-text>
+        </ion-col>
+        <ion-col size="1.3">
+          <ion-text>{{ a.artwork_type }}</ion-text>
+        </ion-col>
+        <ion-col size="1.3">
+          <ion-text>{{ a.contact_info }}</ion-text>
+        </ion-col>
+        <ion-col size="1.6">
+          <ion-text>{{ a.exhibition_date }}</ion-text>
+        </ion-col>
+        <ion-col size="1.3">
+          <ion-text>{{ a.special_notes }}</ion-text>
+        </ion-col>
+        <ion-col size="1.5">
+          <ion-text>{{ switchStatement(a.is_featured_artist) }}</ion-text>
+        </ion-col>
+
+      </ion-row>
+    </div>
+  </ion-grid>
+
+
+
+</ion-content>

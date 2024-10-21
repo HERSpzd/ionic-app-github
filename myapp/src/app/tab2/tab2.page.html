@@ -1,0 +1,119 @@
+<!-- This page displays all artists -->
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      All Artists
+    </ion-title>
+    <!-- Go to the Add New Artist button -->
+    <ion-button slot="end" size="small" style="margin-right: 10px;" (click)="openAddPage()">
+      <ion-icon name="person-add"></ion-icon>
+    </ion-button>
+    <!-- Go to search page button -->
+    <ion-button slot="end" size="small" style="margin-right: 10px;" (click)="openSearchPage()">
+      <ion-icon name="search"></ion-icon>
+    </ion-button>
+    <!-- Refresh button -->
+    <ion-button slot="end" size="small" style="margin-right: 10px;" (click)="getAllArtist()">
+      <ion-icon name="refresh"></ion-icon>
+    </ion-button>
+    <!-- Help button -->
+    <ion-button id="help-alert2" slot="end" size="small" style="margin-right: 10px;">
+      <ion-icon name="help"></ion-icon>
+      <ion-alert trigger="help-alert2" header="Help" subHeader="Do you need help?"
+        message="This page displays all the data in the database. You can click on the far right to edit, update, and delete data. You can also click the New button in the upper right corner to create new artist data, the Search button to search for artists, and the Refresh button to refresh the page. The buttons in the upper left corner from left to right are the New button, Search button, Refresh button, and Help button, respectively"
+        [buttons]="alertButtons2">
+      </ion-alert>
+    </ion-button>
+
+
+
+
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Display a table of all artists -->
+  <ion-grid style="text-align: center;">
+    <ion-row style="font-size: 11px; font-weight: bold;">
+      <ion-col size="1.1">
+        <ion-text>Artist ID</ion-text>
+      </ion-col>
+      <ion-col size="1.1">
+        <ion-text>Name</ion-text>
+      </ion-col>
+      <ion-col size="1.3">
+        <ion-text>DOB</ion-text>
+      </ion-col>
+      <ion-col size="1.2">
+        <ion-text>Gender</ion-text>
+      </ion-col>
+      <ion-col size="1.3">
+        <ion-text>Artwork Type</ion-text>
+      </ion-col>
+      <ion-col size="1.2">
+        <ion-text>Contact Info</ion-text>
+      </ion-col>
+      <ion-col size="1.5">
+        <ion-text>Exhibition Date</ion-text>
+      </ion-col>
+      <ion-col size="1.2">
+        <ion-text>Special Notes</ion-text>
+      </ion-col>
+      <ion-col size="1.4">
+        <ion-text>Featured Artist</ion-text>
+      </ion-col>
+
+
+    </ion-row>
+
+    <ion-row *ngFor="let a of artistData;" style="font-size: 11px; font-weight: bold;">
+      <ion-col size="1.1">
+        <ion-text>{{ a.artist_id }}</ion-text>
+      </ion-col>
+      <ion-col size="1.1">
+        <ion-text>{{ a.name }}</ion-text>
+      </ion-col>
+      <ion-col size="1.3">
+        <ion-text>{{ a.dob }}</ion-text>
+      </ion-col>
+      <ion-col size="1.2">
+        <ion-text>{{ a.gender }}</ion-text>
+      </ion-col>
+      <ion-col size="1.3">
+        <ion-text>{{ a.artwork_type }}</ion-text>
+      </ion-col>
+      <ion-col size="1.2">
+        <ion-text>{{ a.contact_info }}</ion-text>
+      </ion-col>
+      <ion-col size="1.5">
+        <ion-text>{{ a.exhibition_date }}</ion-text>
+      </ion-col>
+      <ion-col size="1.2">
+        <ion-text>{{ a.special_notes }}</ion-text>
+      </ion-col>
+      <ion-col size="1.4">
+        <ion-text>{{ switchStatement(a.is_featured_artist) }}</ion-text>
+      </ion-col>
+      <ion-col size="0.1">
+        <!-- Edit button -->
+        <ion-button fill="clear" (click)="openEditPage(a)">
+          <ion-icon name="create" size="small"></ion-icon>
+        </ion-button>
+        <!-- delete Button -->
+        <ion-button (click)="onDeleteClick(a.name)" fill="clear">
+          <ion-icon name="close-circle" size="small"></ion-icon>
+        </ion-button>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+
+  <br>
+
+
+
+
+
+</ion-content>

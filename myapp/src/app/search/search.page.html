@@ -1,0 +1,100 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Search</ion-title>
+    <!-- Help button -->
+    <ion-button id="help-alert7" slot="end" size="small" style="margin-right: 10px;">
+      <ion-icon name="help"></ion-icon>
+      <ion-alert trigger="help-alert7" header="Help" subHeader="Do you need help?"
+        message="This page allows you to search for artists by entering their name in the search box. Then you can click the back button in the upper left corner to return."
+        [buttons]="alertButtons7">
+      </ion-alert>
+    </ion-button>
+    <!-- Back button -->
+    <ion-button slot="end" size="small" style="margin-right: 10px;" (click)="dismiss()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <br>
+  <!-- Search bar -->
+  <div style="display: flex; align-items: center; justify-content: center;">
+    <ion-input style="width: 50%; border: 1px solid #ccc;" placeholder="Please enter the artist name to search"
+      [(ngModel)]="searchText"></ion-input>
+    <ion-button (click)="search()">
+      <ion-icon name="search-sharp"></ion-icon>
+    </ion-button>
+  </div>
+
+  <!-- Search list display -->
+  <ion-grid style="text-align: center;">
+    <ion-row style="font-size: 11px; font-weight: bold;">
+      <ion-col size="1.1">
+        <ion-text>Artist ID</ion-text>
+      </ion-col>
+      <ion-col size="1.1">
+        <ion-text>Name</ion-text>
+      </ion-col>
+      <ion-col size="1.1">
+        <ion-text>DOB</ion-text>
+      </ion-col>
+      <ion-col size="1.3">
+        <ion-text>Gender</ion-text>
+      </ion-col>
+      <ion-col size="1.3">
+        <ion-text>Artwork Type</ion-text>
+      </ion-col>
+      <ion-col size="1.3">
+        <ion-text>Contact Info</ion-text>
+      </ion-col>
+      <ion-col size="1.6">
+        <ion-text>Exhibition Date</ion-text>
+      </ion-col>
+      <ion-col size="1.3">
+        <ion-text>Special Notes</ion-text>
+      </ion-col>
+      <ion-col size="1.4">
+        <ion-text>Featured Artist</ion-text>
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row *ngFor="let a of artistData2;" style="font-size: 11px; font-weight: bold;">
+      <ion-col size="1.1">
+        <ion-text>{{ a.artist_id }}</ion-text>
+      </ion-col>
+      <ion-col size="1.1">
+        <ion-text>{{ a.name }}</ion-text>
+      </ion-col>
+      <ion-col size="1.1">
+        <ion-text>{{ a.dob }}</ion-text>
+      </ion-col>
+      <ion-col size="1.3">
+        <ion-text>{{ a.gender }}</ion-text>
+      </ion-col>
+      <ion-col size="1.3">
+        <ion-text>{{ a.artwork_type }}</ion-text>
+      </ion-col>
+      <ion-col size="1.3">
+        <ion-text>{{ a.contact_info }}</ion-text>
+      </ion-col>
+      <ion-col size="1.6">
+        <ion-text>{{ a.exhibition_date }}</ion-text>
+      </ion-col>
+      <ion-col size="1.3">
+        <ion-text>{{ a.special_notes }}</ion-text>
+      </ion-col>
+      <ion-col size="1.5">
+        <ion-text>{{ switchStatement(a.is_featured_artist) }}</ion-text>
+      </ion-col>
+
+
+    </ion-row>
+  </ion-grid>
+
+
+
+
+
+</ion-content>
